@@ -80,13 +80,13 @@ namespace WorldCitiesAPI.Data
                 sortOrder = !string.IsNullOrEmpty(sortOrder)
                     && sortOrder.ToUpper() == "ASC"
                     ? "ASC"
-                    : "DESC";
+                    : "DESC"; //Default sort order is descending.
                 source = source.OrderBy(
                     string.Format(
                         "{0} {1}",
                         sortColumn,
                         sortOrder)
-                    );
+                );
             }
 
             source = source

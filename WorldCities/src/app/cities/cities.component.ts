@@ -42,7 +42,6 @@ export class CitiesComponent implements OnInit {
     this.getData(pageEvent);
   }
 
-
   getData(event: PageEvent) {
     var url = environment.baseUrl + 'api/Cities';
     var params = new HttpParams()

@@ -32,16 +32,16 @@ export class CityEditComponent implements OnInit {
       name: new FormControl(''),
       lat: new FormControl(''),
       lon: new FormControl(''),
-      countryId: new FormControl('');
+      countryId: new FormControl('')
     });
     this.loadData();
   }
 
   loadData() {
-    this.loadCountries();
+    this.loadCountries(); //This method call is asynchronous.
 
     var idParam = this.activatedRoute.snapshot.paramMap.get('id');
-    this.id = idParam ? +idParam : 0; //The preceding + sign converts the variable to number, or returns NAN.
+    this.id = idParam ? +idParam : 0; //The preceding + sign converts the string variable to number, or returns NAN.
 
     if (this.id) {
       var url = environment.baseUrl + 'api/Cities/' + this.id;
@@ -57,11 +57,12 @@ export class CityEditComponent implements OnInit {
   }
 
   loadCountries() {
-    var url = environment.baseUrl + 'api/Coutries';
+    var url = environment.baseUrl + 'api/Countries';
     var params = new HttpParams()
       .set("pageIndex", "0")
       .set("pageSize", "9999")
-      .set("sortColumn", "name");
+      .set("sortColumn", "name")
+      .set("sortOrder", "asc");
 
     this.http.get<any>(url, { params }).subscribe(result => {
       this.countries = result.data;
@@ -74,6 +75,7 @@ export class CityEditComponent implements OnInit {
       city.name = this.form.controls['name'].value;
       city.lat = +this.form.controls['lat'].value;
       city.lon = +this.form.controls['lon'].value;
+      city.countryId = +this.form.controls['countryId'].value;
 
       if (this.id) {
 
@@ -86,7 +88,8 @@ export class CityEditComponent implements OnInit {
       } else {
         var url = environment.baseUrl + 'api/Cities';
         this.http.post<City>(url, city).subscribe(result => {
-          console.log("City " + result.id + "has beed created.");
+          console.log("City " + result.id + "has been created.");
+          this.router.navigate(['/cities']);
         }, error => console.log(error));
       }
     }

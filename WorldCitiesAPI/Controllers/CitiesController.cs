@@ -26,7 +26,7 @@ public class CitiesController : ControllerBase
     // GET: api/Cities/?pageIndex=0&pageSize=10&sortColumn=name&sortOrder=asc
     [HttpGet]
     public async Task<ActionResult<ApiResult<City>>> GetCities(
-            int pageIndex = 0,
+            int pageIndex = 0, //default values for pageIndex and pageSize, which will be overriden by Angular HttpParams methods
             int pageSize = 10,
             string? sortColumn = null,
             string? sortOrder = null,
