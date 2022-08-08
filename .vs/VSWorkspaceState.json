@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\WorldCitiesAPI\\bin",
-    "\\WorldCitiesAPI\\bin\\Debug",
-    "\\WorldCities\\.angular",
-    "\\WorldCities\\.angular\\cache",
-    "\\WorldCities\\.angular\\cache\\angular-webpack"
+    ""
   ],
-  "SelectedNode": "\\.git",
+  "SelectedNode": "\\WorldCities.sln",
   "PreviewInSolutionExplorer": false
 }
