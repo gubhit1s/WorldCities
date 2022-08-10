@@ -7,7 +7,7 @@
 <button mat-flat-button color="primary" class="btn-add" [routerLink]="['/country']">Add a new country</button>
 
 <mat-form-field [hidden]="!countries">
-  <input matInput #filter (keyup)="loadData(filter.value)"
+  <input matInput #filter (keyup)="onFilterTextChanged(filter.value)"
          placeholder="Filter by name (or part of it)...">
 </mat-form-field>
 
