@@ -26,7 +26,7 @@ export class CountryEditComponent implements OnInit {
           errors.push('${displayName} contains invalid characters.');
           break;
         case 'isDupeField':
-          erros.push('${displayname} already exists: please choose another.');
+          erros.push('${displayName} already exists: please choose another.');
           break;
         default:
           errors.push('${displayName} is invalid.');
