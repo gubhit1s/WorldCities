@@ -19,13 +19,15 @@
     <mat-form-field>
       <mat-label>Latitude:</mat-label>
       <input matInput formControlName="lat" required placeholder="Insert latitude" />
-      <mat-error *ngFor="let error of getErrors(form.get('lat')!, 'Lat')">{{error}}</mat-error>
+      <mat-error *ngFor="let error of getErrors(form.get('lat')!, 'Latitude',
+                 { 'pattern' : 'requires a positive or negative number with 0-4 decimal values' })">{{error}}</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Longitutde:</mat-label>
       <input matInput formControlName="lon" required placeholder="Insert longitutde" />
-      <mat-error *ngFor="let error of getErrors(form.get('lon')!, 'Lon')">{{error}}</mat-error>
+      <mat-error *ngFor="let error of getErrors(form.get('lon')!, 'Longitude',
+                 { 'pattern' : 'requires a positive or negative number with 0-4 decimal values' })">{{error}}</mat-error>
     </mat-form-field>
 
     <mat-form-field *ngIf="countries">

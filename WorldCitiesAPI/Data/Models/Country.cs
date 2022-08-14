@@ -35,12 +35,31 @@ namespace WorldCitiesAPI.Data.Models
         /// </summary>
         [JsonPropertyName("iso3")]
         public string ISO3 { get; set; } = null!;
+/*
+ * This approach is not viable because of its vulnerabilities to security threats.
+        #region Client-side properites
+        /// <summary>
+        /// The number of cities related to this country.
+        /// </summary>
+        [NotMapped]
+        public int TotCities
+        {
+            get
+            {
+                return (Cities != null) ? Cities.Count : _TotCities;
+            }
+            set { _TotCities = value; }
+        }
+
+        private int _TotCities = 0;
         #endregion
 
         #region Navigation Properties
         /// <summary>
-        /// A collection of all the cities related to this country.
+        /// A list containing all the cities related to this country.
         /// </summary>
+        [JsonIgnore]
+*/
         public ICollection<City>? Cities { get; set; } = null!;
         #endregion
     }
