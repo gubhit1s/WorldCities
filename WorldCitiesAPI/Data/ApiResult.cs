@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
 using System.Reflection;
+using EFCore.BulkExtensions;
 
 namespace WorldCitiesAPI.Data
 {
@@ -93,7 +94,10 @@ namespace WorldCitiesAPI.Data
                 .Skip(pageIndex * pageSize)
                 .Take(pageSize);
 
-            var data = await source.ToListAsync();
+#if DEBUG
+            var sql = source.ToParametrizedSql();
+#endif
+            List<T> data = await source.ToListAsync();
 
             return new ApiResult<T>(
                 data,

@@ -24,7 +24,7 @@ export class CountryService extends BaseService<Country> {
     var url = this.getUrl("api/countries");
     var params = new HttpParams()
       .set("pageIndex", pageIndex.toString())
-      .set("pageSize", pageIndex.toString())
+      .set("pageSize", pageSize.toString())
       .set("sortColumn", sortColumn)
       .set("sortOrder", sortOrder);
 
@@ -38,12 +38,12 @@ export class CountryService extends BaseService<Country> {
   }
 
   get(id: number): Observable<Country> {
-    var url = this.getUrl("api/countries" + id);
+    var url = this.getUrl("api/countries/" + id);
     return this.http.get<Country>(url);
   }
 
   put(item: Country): Observable<Country> {
-    var url = this.getUrl("api/countries" + item.id);
+    var url = this.getUrl("api/countries/" + item.id);
     return this.http.put<Country>(url, item);
 
   }
