@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5JwkbAlRTrs2RemUVTM8uTs4DE+k8jwOXQjihIcTjl83zmR9r0o+q3DYlXdDxKcwRqJ9FA7X6RnhO824/9v4Sg==",
+  "dgSpecHash": "e1DoxGQWYG+jkvFeswI+Xw2sFHhC9TlvcUy09hlUHZ1S2srVER/4G0eq264W0lKLr2iKVlZoin+ggmTYRUUvFQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\WorldCities\\WorldCitiesAPI\\WorldCitiesAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\dotmorten.microsoft.sqlserver.types\\1.4.0\\dotmorten.microsoft.sqlserver.types.1.4.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\efcore.bulkextensions\\6.5.6\\efcore.bulkextensions.6.5.6.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\entityframeworkcore.sqlserver.hierarchyid\\3.0.1\\entityframeworkcore.sqlserver.hierarchyid.3.0.1.nupkg.sha512",
@@ -90,6 +91,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\moq\\4.18.2\\moq.4.18.2.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\nettopologysuite\\2.0.0\\nettopologysuite.2.0.0.nupkg.sha512",
@@ -166,6 +168,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.process\\4.3.0\\system.diagnostics.process.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
