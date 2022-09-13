@@ -1,6 +1,6 @@
-using Micosoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Token.Jwt;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using WorldCitiesAPI.Data.Models;
@@ -22,22 +22,22 @@ public class JwtHandler {
             claims: await GetClaimsAsync(user),
             expires: DateTime.Now.AddMinutes(Convert.ToDouble(
                 _configuration["JwtSettings:ExpirationTimeInMinutes"])),
-            signingCredentials: getSigningCredentials());
+            signingCredentials: GetSigningCredentials());
         return jwtOptions;
     }
     
     private SigningCredentials GetSigningCredentials() {
         var key = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecurityKey"]);
         var secret = new SymmetricSecurityKey(key);
-        return new SiginingCredentials(secret, SecurityAlgorithms.HmcSha256);
+        return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
     }
     
-    private async Task<List<Claim>> GetClaimAsync(ApplicationUser user) {
+    private async Task<List<Claim>> GetClaimsAsync(ApplicationUser user) {
         var claims = new List<Claim> {
             new Claim(ClaimTypes.Name, user.Email)
         };
         
-        foreach (var role in _userManager.GetRolesAsync(user)) {
+        foreach (var role in await _userManager.GetRolesAsync(user)) {
             claims.Add(new Claim(ClaimTypes.Role, role));
         }
         return claims;

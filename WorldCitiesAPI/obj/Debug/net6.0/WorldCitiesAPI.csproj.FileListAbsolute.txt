@@ -304,3 +304,9 @@ C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Serilog.Sinks.MSSqlServe
 C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
 C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Castle.Core.dll
 C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Moq.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Projects\WorldCities\WorldCitiesAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
