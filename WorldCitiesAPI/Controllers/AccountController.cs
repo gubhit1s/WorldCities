@@ -27,4 +27,10 @@ public class AccountController : ControllerBase {
                 Success = false,
                 Message = "Invalid Email or Password."
             });
+        var secToken = await _jwtHandler.GetTokenAsync(user);
+        var jwt = new JwtSecurityTokenHandler().WriteToken(secToken);
+        return Ok(new LoginResult() {
+            Success = true, Message = "Login successful", Token = jwt
+        });
+    }    
 }
