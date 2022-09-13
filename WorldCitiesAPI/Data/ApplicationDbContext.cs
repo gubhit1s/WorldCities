@@ -3,7 +3,7 @@ using WorldCitiesAPI.Data.Models;
 
 namespace WorldCitiesAPI.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public ApplicationDbContext() : base()
