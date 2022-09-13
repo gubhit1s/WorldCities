@@ -36,7 +36,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
-        )
+    )
 );
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => {
@@ -47,6 +47,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => {
     options.Password.RequireNonAlphaNumeric = true;
     options.Password.RequireLength = 8;
 });
+
+builder.Services.AddScoped<JwtHandler>();
 
 var app = builder.Build();
 
