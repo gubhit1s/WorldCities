@@ -3,6 +3,8 @@ using WorldCitiesAPI.Data;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
+using WorldCitiesAPI.Data.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
         )
 );
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+    options.SignIn.RequiredConfirmedAccount = true;
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphaNumeric = true;
+    options.Password.RequireLength = 8;
+});
 
 var app = builder.Build();
 
