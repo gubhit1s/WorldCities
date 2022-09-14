@@ -27,6 +27,6 @@ public static class IdentityHelper
             new Mock<IPasswordHasher<TIdentityUser>>().Object, new IUserValidator<TIdentityUser>[0],
             new IPasswordValidator<TIdentityUser>[0], new UpperInvariantLookupNormalizer(),
             new Mock<IdentityErrorDescriber>().Object, new Mock<IServiceProvider>().Object,
-            new Mock<Logger<UserManager<TIdentityUser>>>().Object);
+            new Mock<ILogger<UserManager<TIdentityUser>>>().Object);
     }
 }

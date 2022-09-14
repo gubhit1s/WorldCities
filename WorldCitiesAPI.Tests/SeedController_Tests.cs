@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using WorldCitiesAPI.Controllers;
 using WorldCitiesAPI.Data;
 using WorldCitiesAPI.Data.Models;
-using XUnit;
+using Xunit;
 
 namespace WorldCitiesAPI.Tests;
 public class SeedController_Tests {
@@ -39,7 +39,7 @@ public class SeedController_Tests {
 		var userManager = IdentityHelper.GetUserManager(new UserStore<ApplicationUser>(context));
 		
 		// Create a SeedController instance
-		var controller = new SeedController(context, roleManager, userManager, mockEnv, mockConfiguration.Object);
+		SeedController? controller = new SeedController(context, roleManager, userManager, mockEnv, mockConfiguration.Object);
 		
 		// Define the variables for the users we want to test
 		ApplicationUser user_Admin = null!;
@@ -56,6 +56,6 @@ public class SeedController_Tests {
 		// Assert
 		Assert.NotNull(user_Admin);
 		Assert.NotNull(user_User);
-		Assert.NotNull(user_NotExisting);
+		Assert.Null(user_NotExisting);
 	}
 }

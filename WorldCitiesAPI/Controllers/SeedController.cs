@@ -5,25 +5,26 @@ using OfficeOpenXml;
 using WorldCitiesAPI.Data;
 using WorldCitiesAPI.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WorldCitiesAPI.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
+[Authorize(Roles = "Administrator")]
 public class SeedController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
-    private readonly IWebHostEnvironment _env;
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IWebHostEnvironment _env;
     private readonly IConfiguration _configuration;
-
-	[Authorize(Roles = "Administrator")]    	
+   	
     public SeedController(
         ApplicationDbContext context,
-        IWebHostEnvironment env,
         RoleManager<IdentityRole> roleManager,
         UserManager<ApplicationUser> userManager,
+        IWebHostEnvironment env,
         IConfiguration configuration)
     {
         _context = context;
