@@ -18,6 +18,7 @@ public class SeedController : ControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IConfiguration _configuration;
 
+	[Authorize(Roles = "Administrator")]    	
     public SeedController(
         ApplicationDbContext context,
         IWebHostEnvironment env,
