@@ -3,7 +3,7 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     
     <p>
-      <mat-error *ngIf="loginResult && !login.success">
+      <mat-error *ngIf="loginResult && !loginResult.success">
         <strong>ERROR</strong>: {{ loginResult.message }}
       </mat-error>
     </p>
