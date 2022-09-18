@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (token) {
             req = req.clone({
                 setHeaders: {
-                    Authorization: 'Bearer ${token}'
+                    Authorization: `Bearer ${token}`
                 }
             });
         }
@@ -32,12 +32,12 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError((error) => {
                 //Perform logout on 401 - Unauthorized HTTP response errors
-                if (error instanceof HttpErrorResponse && error.status == 401) {
+                if (error instanceof HttpErrorResponse && error.status === 401) {
                     this.authService.logout();
                     this.router.navigate(['login']);
                 }
                 return throwError(error);
-            });
-        );
+            }
+        ));
     }
 }

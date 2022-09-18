@@ -10,7 +10,7 @@ import { LoginResult } from './login-result';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scsss']
+    styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent extends BaseFormComponent implements OnInit {
@@ -34,14 +34,13 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
 
     onSubmit() {
         var loginRequest = <LoginRequest>{};
-        loginRequest.email = this.forms.controls['email'].value;
-        loginRequest.password = this.forms.controls['password'].value;
+        loginRequest.email = this.form.controls['email'].value;
+        loginRequest.password = this.form.controls['password'].value;
 
         this.authService.login(loginRequest).subscribe(result => {
             console.log(result);
             this.loginResult = result;
             if (result.success && result.token) {
-                localStorage.setItem(this.authService.tokenKey, result.token);
                 this.router.navigate(["/"]);
             }
         }, error => {
