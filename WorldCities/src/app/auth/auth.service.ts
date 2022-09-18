@@ -35,7 +35,6 @@ export class AuthService {
         var url = environment.baseUrl + "api/Account/Login";
         return this.http.post<LoginResult>(url, item).pipe(tap(loginResult => {
             if (loginResult.success && loginResult.token) {
-                localStorage.setItem(this.tokenKey, loginResult.token);
                 this.setAuthStatus(true);
             }
         }));
