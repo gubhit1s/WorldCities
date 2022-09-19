@@ -7,6 +7,7 @@ using WorldCitiesAPI.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Cors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,12 @@ builder.Services.AddAuthentication(opt => {
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecurityKey"]))
     };
 });
+
+builder.Services.AddCors(options => options.AddPolicy(name: "AngularPolicy", cfg => {
+    cfg.AllowAnyHeader();
+    cfg.AllowAnyMethod();
+    cfg.WithOrigins(builder.Configuration["AllowedCORS"]);
+}));
         
 
 var app = builder.Build();
