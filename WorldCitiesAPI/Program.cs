@@ -81,6 +81,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    app.UseExceptionHandler("/Error");
+    app.MapGet("/Error", () => Results.Problem());
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
 
@@ -88,5 +94,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapMethods("/api/hearbeat", new[] { "HEAD" }, () => Results.Ok());
 
 app.Run();

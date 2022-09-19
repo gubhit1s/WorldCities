@@ -34,9 +34,10 @@ export class AuthService {
     login(item: LoginRequest): Observable<LoginResult> {
         var url = environment.baseUrl + "api/Account/Login";
         return this.http.post<LoginResult>(url, item).pipe(tap(loginResult => {
-            if (loginResult.success && loginResult.token) {
-                this.setAuthStatus(true);
-            }
+          if (loginResult.success && loginResult.token) {
+            localStorage.setItem(this.tokenKey, loginResult.token);
+            this.setAuthStatus(true);
+          }
         }));
     }
     
