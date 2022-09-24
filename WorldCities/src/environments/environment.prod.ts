@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "https://localhost:40443/"
+  baseUrl: "http://worldcities-2022-api.centralindia.cloudapp.azure.com/"
 };

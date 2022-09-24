@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3w6oUzUL9yUhdjzFpE+TWhrxLRtPLrewjIqyC9wWaAlEtITR3hYU3fABv820sr5EVt9kPC11nASuvJVM7ilGnw==",
+  "dgSpecHash": "GQ/AfB62F3GE8yZ6LxFOjfD26WaJw5CgRgvLSBnWm/DtKfFkPCWC3mNMHJyUmzMkfKFrKrS/1sGn8iL13tL9gw==",
   "success": true,
   "projectFilePath": "C:\\Projects\\WorldCities\\WorldCitiesAPI.Tests\\WorldCitiesAPI.Tests.csproj",
   "expectedPackageFiles": [
@@ -11,14 +11,39 @@
     "C:\\Users\\admin\\.nuget\\packages\\entityframeworkcore.sqlserver.hierarchyid\\3.0.1\\entityframeworkcore.sqlserver.hierarchyid.3.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\entityframeworkcore.sqlserver.hierarchyid.abstractions\\3.0.1\\entityframeworkcore.sqlserver.hierarchyid.abstractions.3.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\epplus\\4.5.3.3\\epplus.4.5.3.3.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\greendonut\\12.7.0\\greendonut.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate\\12.7.0\\hotchocolate.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.abstractions\\12.7.0\\hotchocolate.abstractions.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.aspnetcore\\12.6.0\\hotchocolate.aspnetcore.12.6.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.aspnetcore.authorization\\12.7.0\\hotchocolate.aspnetcore.authorization.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.data\\12.6.0\\hotchocolate.data.12.6.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.data.entityframework\\12.6.0\\hotchocolate.data.entityframework.12.6.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.execution\\12.7.0\\hotchocolate.execution.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.fetching\\12.7.0\\hotchocolate.fetching.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.language\\12.7.0\\hotchocolate.language.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.language.syntaxtree\\12.7.0\\hotchocolate.language.syntaxtree.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.language.utf8\\12.7.0\\hotchocolate.language.utf8.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.language.visitors\\12.7.0\\hotchocolate.language.visitors.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.subscriptions\\12.7.0\\hotchocolate.subscriptions.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.subscriptions.inmemory\\12.7.0\\hotchocolate.subscriptions.inmemory.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.types\\12.7.0\\hotchocolate.types.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.types.cursorpagination\\12.7.0\\hotchocolate.types.cursorpagination.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.types.mutations\\12.7.0\\hotchocolate.types.mutations.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.types.offsetpagination\\12.7.0\\hotchocolate.types.offsetpagination.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.types.scalars.upload\\12.6.0\\hotchocolate.types.scalars.upload.12.6.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.utilities\\12.7.0\\hotchocolate.utilities.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.utilities.introspection\\12.7.0\\hotchocolate.utilities.introspection.12.7.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\hotchocolate.validation\\12.7.0\\hotchocolate.validation.12.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.9\\microsoft.aspnetcore.authentication.jwtbearer.6.0.9.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.4\\microsoft.aspnetcore.authorization.3.1.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.9\\microsoft.aspnetcore.cryptography.internal.6.0.9.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.9\\microsoft.aspnetcore.cryptography.keyderivation.6.0.9.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.9\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.9.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.4\\microsoft.aspnetcore.metadata.3.1.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.azure.services.appauthentication\\1.4.0\\microsoft.azure.services.appauthentication.1.4.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
@@ -66,6 +91,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.diagnosticadapter\\3.1.4\\microsoft.extensions.diagnosticadapter.3.1.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.8\\microsoft.extensions.fileproviders.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.0\\microsoft.extensions.fileproviders.physical.3.1.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.0\\microsoft.extensions.filesystemglobbing.3.1.0.nupkg.sha512",
@@ -74,6 +100,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.9\\microsoft.extensions.identity.stores.6.0.9.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.objectpool\\3.1.4\\microsoft.extensions.objectpool.3.1.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\2.0.0\\microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
@@ -164,6 +191,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.componentmodel.primitives\\4.3.0\\system.componentmodel.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.componentmodel.typeconverter\\4.3.0\\system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.composition\\1.0.31\\system.composition.1.0.31.nupkg.sha512",
@@ -248,6 +276,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.threading.channels\\4.7.0\\system.threading.channels.4.7.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.tasks.dataflow\\4.9.0\\system.threading.tasks.dataflow.4.9.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
@@ -270,5 +299,16 @@
     "C:\\Users\\admin\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "WorldCitiesAPI depends on HotChocolate.AspNetCore.Authorization (>= 12.6.9) but HotChocolate.AspNetCore.Authorization 12.6.9 was not found. An approximate best match of HotChocolate.AspNetCore.Authorization 12.7.0 was resolved.",
+      "libraryId": "HotChocolate.AspNetCore.Authorization",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

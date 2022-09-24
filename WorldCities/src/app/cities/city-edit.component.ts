@@ -105,7 +105,7 @@ export class CityEditComponent extends BaseFormComponent implements OnInit, OnDe
   }
 
   loadCountries() {
-    this.cityService.getCountries(0, 9999, "name", "asc", null, null).pipe(map(
+    this.countries = this.cityService.getCountries(0, 9999, "name", "asc", null, null).pipe(map(
       x => x.data
     ));
   }
