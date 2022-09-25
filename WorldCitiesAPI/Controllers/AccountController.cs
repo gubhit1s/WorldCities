@@ -20,7 +20,7 @@ public class AccountController : ControllerBase {
     }
     
     [HttpPost("Login")]
-    public async Task<IActionResult> Login(LoginRequest loginRequest) {
+    public async Task<IActionResult> Login(AccountInfo loginRequest) {
         var user = await _userManager.FindByNameAsync(loginRequest.Email);
         if (user == null || !await _userManager.CheckPasswordAsync(user, loginRequest.Password))
             return Unauthorized(new LoginResult() {
@@ -32,5 +32,11 @@ public class AccountController : ControllerBase {
         return Ok(new LoginResult() {
             Success = true, Message = "Login successful", Token = jwt
         });
-    }    
+    }
+
+    [HttpPost("Register")]
+    public async Task<IActionResult> Register(AccountInfo registerRequest)
+    {
+        return null;
+    }
 }

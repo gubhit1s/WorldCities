@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators, AbstractControl, AsyncValidatorFn }
 
 import { BaseFormComponent } from '../base-form.component';
 import { AuthService } from './auth.service';
-import { LoginRequest } from './login-request';
+import { AccountInfo } from './account-info';
 import { LoginResult } from './login-result';
 
 @Component({
@@ -33,7 +33,7 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
     }
 
     onSubmit() {
-        var loginRequest = <LoginRequest>{};
+        var loginRequest = <AccountInfo>{};
         loginRequest.email = this.form.controls['email'].value;
         loginRequest.password = this.form.controls['password'].value;
 

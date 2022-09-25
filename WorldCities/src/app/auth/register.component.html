@@ -1,0 +1,31 @@
+<div class="register">
+  <h1>Register</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <mat-label>Email:</mat-label>
+      <input matInput type="email" formControlName="email" required placeholder="Type your email..." />
+      <mat-error *ngFor="let error of getErrors(form.get('email')!, 'Email')">{{error}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password:</mat-label>
+      <input matInput type="password" formControlName="password" required />
+      <mat-error *ngFor="let error of getErrors(form.get('password')!, 'Password',
+                 { 'pattern' : 'must contain at least 8 characters, including uppercase, lowercase letters
+                 and numbers' })">{{error}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password:</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" required />
+      <mat-error *ngFor="let error of getErrors(form.get('confirmPassword')!, 'Password')">{{error}}</mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-flat-button color="primary" type="submit">Register</button>
+      <button mat-flat-button color="secondary" [routerLink]="['/']">Cancel</button>
+    </div>
+
+  </form>
+</div>

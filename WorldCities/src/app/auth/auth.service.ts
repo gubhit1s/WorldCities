@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, tap } from 'rxjs';
 
 import { environment } from './../../environments/environment';
-import { LoginRequest } from './login-request';
+import { AccountInfo } from './account-info';
 import { LoginResult } from './login-result';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class AuthService {
         if (this.isAuthenticated()) this.setAuthStatus(true);
     }
 
-    login(item: LoginRequest): Observable<LoginResult> {
+    login(item: AccountInfo): Observable<LoginResult> {
         var url = environment.baseUrl + "api/Account/Login";
         return this.http.post<LoginResult>(url, item).pipe(tap(loginResult => {
           if (loginResult.success && loginResult.token) {

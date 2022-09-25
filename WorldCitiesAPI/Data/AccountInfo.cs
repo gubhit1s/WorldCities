@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 namespace WorldCitiesAPI.Data;
-public class LoginRequest {
+public class AccountInfo {
   [Required(ErrorMessage = "Email is required.")]
   public string Email { get; set; } = null!;
   
