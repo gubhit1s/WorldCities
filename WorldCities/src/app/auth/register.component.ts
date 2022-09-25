@@ -52,10 +52,7 @@ export class RegisterComponent extends BaseFormComponent implements OnInit {
     };
   }
 
+  onSubmit() {
 
-  updateValue() {
-    this.form.controls['password'].updateValueAndValidity();
   }
-
-  onSubmit() { }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WorldCitiesAPI.Data;
 using WorldCitiesAPI.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WorldCitiesAPI.Controllers;
 
@@ -37,6 +38,32 @@ public class AccountController : ControllerBase {
     [HttpPost("Register")]
     public async Task<IActionResult> Register(AccountInfo registerRequest)
     {
-        return null;
+        ApplicationUser user = await _userManager.FindByEmailAsync(registerRequest.Email);
+        if (user != null)
+        {
+            return BadRequest(new RegisterResult()
+            {
+                Success = false,
+                Message = "Registration failed, this account has already been registered!"
+            });
+        }
+        else
+        {
+            ApplicationUser newUser = new ApplicationUser()
+            {
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = registerRequest.Email,
+                Email = registerRequest.Email,
+            };
+
+            await _userManager.CreateAsync(newUser, registerRequest.Password);
+            await _userManager.AddToRoleAsync(newUser, "RegisteredUser");
+
+            return Ok(new RegisterResult()
+            {
+                Success = true,
+                Message = "Registration successful"
+            });
+        }
     }
 }
