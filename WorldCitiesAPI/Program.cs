@@ -118,6 +118,8 @@ app.UseCors("AngularPolicy");
 
 app.MapControllers();
 
+app.MapGraphQL("/api/graphql");
+
 app.MapMethods("/api/hearbeat", new[] { "HEAD" }, () => Results.Ok());
 
 app.Run();
