@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './auth/register.component';
+import { RegistrationSuccessComponent } from './auth/registration-success.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegisterComponent } from './auth/register.component';
     CityEditComponent,
     CountryEditComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrationSuccessComponent
   ],
   imports: [
     BrowserModule,

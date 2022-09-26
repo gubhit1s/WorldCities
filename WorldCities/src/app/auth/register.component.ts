@@ -3,10 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BaseFormComponent } from './../base-form.component';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AccountInfo } from './account-info';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
+import { RegisterResult } from './register-result';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,31 +17,32 @@ import { environment } from '../../environments/environment.prod';
 })
 export class RegisterComponent extends BaseFormComponent implements OnInit {
 
-
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {
     super();
   }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)], this.isRegisteredAccount()),
       password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)]),
       confirmPassword: new FormControl('', [Validators.required, this.isIdenticalField()])
-    }, null, this.isRegisteredAccount());
+    });
   }
 
   isRegisteredAccount(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any } | null> => {
-      var email = this.form.controls['email'].value;
+      var registerRequest = <AccountInfo>{};
+      registerRequest.email = this.form.controls['email'].value;
+      registerRequest.password = 'registerRequest.email';
       var url = environment.baseUrl + 'api/account/isregisteredaccount';
-      var params = new HttpParams().set("email", email)
-      return this.http.post<boolean>(url, null, { params }).pipe(map(result => {
+      return this.http.post<boolean>(url, registerRequest).pipe(map(result => {
         return (result ? { isRegisteredAccount: true } : null);
       }))
-    }
+    };
   }
 
   isIdenticalField(): ValidatorFn {
@@ -53,6 +56,16 @@ export class RegisterComponent extends BaseFormComponent implements OnInit {
   }
 
   onSubmit() {
-
+    var registerRequest = <AccountInfo>{};
+    registerRequest.email = this.form.controls['email'].value;
+    registerRequest.password = this.form.controls['password'].value;
+    var url = environment.baseUrl + 'api/Account/Register';
+    return this.authService.register(registerRequest).subscribe(result => {
+      if (result.success) {
+        this.router.navigate(["/registrationsuccess"]);
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 }

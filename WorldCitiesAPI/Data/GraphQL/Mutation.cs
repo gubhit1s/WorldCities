@@ -29,7 +29,7 @@ public class Mutation {
 	[Serial]
 	[Authorize(Roles = new[] { "RegisteredUser" })]
 	public async Task<City> UpdateCity([Service] ApplicationDbContext context, CityDTO cityDTO) {
-		City city = await context.Cities.Where(c => c.Id == cityDTO.Id).FirstOrDefaultAsync();
+		City? city = await context.Cities.Where(c => c.Id == cityDTO.Id).FirstOrDefaultAsync();
 		if (city == null) throw new NotSupportedException();
 		city.Name = cityDTO.Name;
 		city.Lat = cityDTO.Lat;
@@ -46,7 +46,7 @@ public class Mutation {
 	[Serial]
 	[Authorize(Roles = new[] { "Administrator" })]
 	public async Task DeleteCity([Service] ApplicationDbContext context, int id) {
-		City city = await context.Cities.Where(c => c.Id == id).FirstOrDefaultAsync();
+		City? city = await context.Cities.Where(c => c.Id == id).FirstOrDefaultAsync();
 		if (city != null) {
 			context.Cities.Remove(city);
 			await context.SaveChangesAsync();
@@ -75,7 +75,7 @@ public class Mutation {
 	[Serial]
 	[Authorize(Roles = new[] { "Administrator" })]
 	public async Task<Country> UpdateCountry([Service] ApplicationDbContext context, CountryDTO countryDTO) {
-		Country country = await context.Countries.Where(c => c.Id = countryDTO.Id).FirstOrDefaultAsync();
+		Country? country = await context.Countries.Where(c => c.Id == countryDTO.Id).FirstOrDefaultAsync();
 		if (country == null) throw new NotSupportedException();
 		country.Name = countryDTO.Name;
 		country.ISO2 = countryDTO.ISO2;
@@ -91,7 +91,7 @@ public class Mutation {
 	[Serial]
 	[Authorize(Roles = new[] { "Administrator" })]
 	public async Task DeleteCountry([Service] ApplicationDbContext context, int id) {
-		Country country = await context.Countries.Where(c => c.Id == id).FirstOrDefaultAsync();
+		Country? country = await context.Countries.Where(c => c.Id == id).FirstOrDefaultAsync();
 		if (country != null) {
 			context.Countries.Remove(country);
 			await context.SaveChangesAsync();
