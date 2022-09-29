@@ -18,9 +18,18 @@
        [matSortActive]="defaultSortColumn"
        [matSortDirection]="defaultSortOrder">
 
+  <!-- Column for editing and deleting -->
+  <ng-container matColumnDef="editButton">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td mat-cell *matCellDef="let city">
+      <i class='fas' style='cursor:pointer'
+         [routerLink]="['/city', city.id]">&#xf044;</i>
+    </td>
+  </ng-container>
+
   <!-- Id Column -->
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
     <td mat-cell *matCellDef="let city">{{ city.id }}</td>
   </ng-container>
 
@@ -28,22 +37,23 @@
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
     <td mat-cell *matCellDef="let city">
-      <a [routerLink]="['/city', city.id]">{{ city.name }}</a>
+      <a href="http://www.google.com/maps/place/{{ city.name.replace(' ', '+') }}" target="_blank">{{ city.name }}</a>
     </td>
   </ng-container>
 
   <!-- Lat Column -->
-  <ng-container matColumnDef="lat">
+ <!-- <ng-container matColumnDef="lat">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Latitude</th>
     <td mat-cell *matCellDef="let city">{{ city.lat }}</td>
   </ng-container>
 
-  <!-- Lon Column -->
+  <!-- Lon Column 
   <ng-container matColumnDef="lon">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Longitude</th>
     <td mat-cell *matCellDef="let city">{{ city.lon }}</td>
-  </ng-container>
+  </ng-container> -->
 
+  <!-- Population Column -->
   <ng-container matColumnDef="population">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Population</th>
     <td mat-cell *matCellDef="let city">{{ city.population }}</td>
@@ -55,7 +65,6 @@
       <a [routerLink]="['/country', city.countryId]">{{ city.countryName }}</a>
     </td>
   </ng-container>
-
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

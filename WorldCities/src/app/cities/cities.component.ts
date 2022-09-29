@@ -16,7 +16,7 @@ import { ApiResult } from '../base.service';
   styleUrls: ['./cities.component.scss']
 })
 export class CitiesComponent implements OnInit {
-  public displayedColumns: string[] = ['id', 'name', 'lat', 'lon', 'population', 'countryName'];
+  public displayedColumns: string[] = ['editButton', 'id', 'name', 'population', 'countryName'];
   public cities!: MatTableDataSource<City>;
 
   defaultPageIndex: number = 0;
