@@ -11,7 +11,7 @@ namespace WorldCitiesAPI.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
-[Authorize(Roles = "Administrator")]
+//[Authorize(Roles = "Administrator")]
 public class SeedController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -19,7 +19,7 @@ public class SeedController : ControllerBase
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IWebHostEnvironment _env;
     private readonly IConfiguration _configuration;
-   	
+
     public SeedController(
         ApplicationDbContext context,
         RoleManager<IdentityRole> roleManager,
@@ -34,19 +34,20 @@ public class SeedController : ControllerBase
         _configuration = configuration;
     }
 
-    [HttpGet]
-    public async Task<ActionResult> Import()
+    public ExcelPackage GetExcelData(string path)
     {
         // prevents non-development environments from running this method
         if (!_env.IsDevelopment())
             throw new SecurityException("Not allowed");
+        string fullPath = System.IO.Path.Combine(_env.ContentRootPath, path);
+        using FileStream stream = System.IO.File.OpenRead(fullPath);
+        return new ExcelPackage(stream);
+    }
 
-        var path = System.IO.Path.Combine(
-            _env.ContentRootPath,
-            "Data/Source/worldcities.xlsx");
-
-        using var stream = System.IO.File.OpenRead(path);
-        using var excelPackage = new ExcelPackage(stream);
+    [HttpGet]
+    public async Task<ActionResult> Import()
+    {
+        ExcelPackage excelPackage = GetExcelData("Data/Source/worldcities.xlsx");
 
         // get the first worksheet 
         var worksheet = excelPackage.Workbook.Worksheets[0];
@@ -122,6 +123,7 @@ public class SeedController : ControllerBase
             var nameAscii = row[nRow, 2].GetValue<string>();
             var lat = row[nRow, 3].GetValue<decimal>();
             var lon = row[nRow, 4].GetValue<decimal>();
+           // long population = row[nRow, 10].GetValue<long>();
             var countryName = row[nRow, 5].GetValue<string>();
 
             // retrieve country Id by countryName
@@ -163,76 +165,124 @@ public class SeedController : ControllerBase
     }
 
     [HttpGet]
-	public async Task<IActionResult> CreateDefaultUsers() {
-		
-		//setup the default role names
-		string role_RegisteredUser = "RegisteredUser";
-		string role_Administrator = "Administrator";
-		
-		//create the default roles (if they don't exist yet)
-		if (await _roleManager.FindByNameAsync(role_RegisteredUser) == null)
-			await _roleManager.CreateAsync(new IdentityRole(role_RegisteredUser));
-		
-		if (await _roleManager.FindByNameAsync(role_Administrator) == null) 
-			await _roleManager.CreateAsync(new IdentityRole(role_Administrator));
-		
-		//create a list to track the newly added users.
-		List<ApplicationUser> addedUserList = new List<ApplicationUser>();
-		
-		//check if the admin user already exists
-		string email_Admin = "admin@email.com";
-		if (await _userManager.FindByNameAsync(email_Admin) == null) {
-			//create a new admin ApplicationUser account
-			ApplicationUser user_Admin = new ApplicationUser() {
-				SecurityStamp = Guid.NewGuid().ToString(),
-				UserName = email_Admin,
-				Email = email_Admin
-			};
-			//insert the admin user into the DB
-			await _userManager.CreateAsync(user_Admin, _configuration["DefaultPasswords:Administrator"]);
-			
-			//assign the "RegisteredUser" and "Administrator" roles
-			await _userManager.AddToRoleAsync(user_Admin, role_RegisteredUser);
-			await _userManager.AddToRoleAsync(user_Admin, role_Administrator);
-			
-			//confirm the e-mail and remove lockout
-			user_Admin.EmailConfirmed = true;
-			user_Admin.LockoutEnabled = false;
-			
-			//add the admin user to the added users list
-			addedUserList.Add(user_Admin);
-		}
-		
-		//check if the standard user already exists
-		string email_User = "user@email.com";
-		if (await _userManager.FindByNameAsync(email_User) == null) {
-			//create a new standard ApplicationUser account
-			ApplicationUser user_User = new ApplicationUser() {
-				SecurityStamp = Guid.NewGuid().ToString(),
-				UserName = email_User,
-				Email = email_User
-			};
-			
-			//insert the standard user into the DB
-			await _userManager.CreateAsync(user_User, _configuration["DefaultPasswords:RegisteredUser"]);
-			
-			//assign the "RegisteredUser" role
-			await _userManager.AddToRoleAsync(user_User, role_RegisteredUser);
-			
-			//confirm the e-mail and remove lockout
-			user_User.EmailConfirmed = true;
-			user_User.LockoutEnabled = false;
-			
-			//add the admin user to the added users list
-			addedUserList.Add(user_User);
-		}
-		
-		//if we added at least one user, persist the changes into the DB
-		if (addedUserList.Count > 0) await _context.SaveChangesAsync();
-		
-		return new JsonResult(new {
-			Count = addedUserList.Count,
-			Users = addedUserList
-		});
-	}
+    public async Task<IActionResult> CreateDefaultUsers()
+    {
+
+        //setup the default role names
+        string role_RegisteredUser = "RegisteredUser";
+        string role_Administrator = "Administrator";
+
+        //create the default roles (if they don't exist yet)
+        if (await _roleManager.FindByNameAsync(role_RegisteredUser) == null)
+            await _roleManager.CreateAsync(new IdentityRole(role_RegisteredUser));
+
+        if (await _roleManager.FindByNameAsync(role_Administrator) == null)
+            await _roleManager.CreateAsync(new IdentityRole(role_Administrator));
+
+        //create a list to track the newly added users.
+        List<ApplicationUser> addedUserList = new List<ApplicationUser>();
+
+        //check if the admin user already exists
+        string email_Admin = "admin@email.com";
+        if (await _userManager.FindByNameAsync(email_Admin) == null)
+        {
+            //create a new admin ApplicationUser account
+            ApplicationUser user_Admin = new ApplicationUser()
+            {
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = email_Admin,
+                Email = email_Admin
+            };
+            //insert the admin user into the DB
+            await _userManager.CreateAsync(user_Admin, _configuration["DefaultPasswords:Administrator"]);
+
+            //assign the "RegisteredUser" and "Administrator" roles
+            await _userManager.AddToRoleAsync(user_Admin, role_RegisteredUser);
+            await _userManager.AddToRoleAsync(user_Admin, role_Administrator);
+
+            //confirm the e-mail and remove lockout
+            user_Admin.EmailConfirmed = true;
+            user_Admin.LockoutEnabled = false;
+
+            //add the admin user to the added users list
+            addedUserList.Add(user_Admin);
+        }
+
+        //check if the standard user already exists
+        string email_User = "user@email.com";
+        if (await _userManager.FindByNameAsync(email_User) == null)
+        {
+            //create a new standard ApplicationUser account
+            ApplicationUser user_User = new ApplicationUser()
+            {
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = email_User,
+                Email = email_User
+            };
+
+            //insert the standard user into the DB
+            await _userManager.CreateAsync(user_User, _configuration["DefaultPasswords:RegisteredUser"]);
+
+            //assign the "RegisteredUser" role
+            await _userManager.AddToRoleAsync(user_User, role_RegisteredUser);
+
+            //confirm the e-mail and remove lockout
+            user_User.EmailConfirmed = true;
+            user_User.LockoutEnabled = false;
+
+            //add the admin user to the added users list
+            addedUserList.Add(user_User);
+        }
+
+        //if we added at least one user, persist the changes into the DB
+        if (addedUserList.Count > 0) await _context.SaveChangesAsync();
+
+        return new JsonResult(new
+        {
+            Count = addedUserList.Count,
+            Users = addedUserList
+        });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> UpdatePopulationField() {
+        ExcelPackage excelPackage = GetExcelData("Data/Source/worldcities.xlsx");
+        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[0];
+        int nEndRow = worksheet.Dimension.End.Row;
+
+        var cities = _context.Cities.AsNoTracking().ToDictionary(x =>
+        (
+            Id: x.Id,
+            Population: x.Population
+        ));
+
+        int numberOfCitiesModified = 0;
+        for (int nRow = 2; nRow <= nEndRow; nRow++)
+        {
+            long population = worksheet.Cells[nRow, 11].GetValue<long>();
+            int id = worksheet.Cells[nRow, 1].GetValue<int>();
+
+            if (cities.ContainsKey((
+                Id: id,
+                Population: population
+            ))) continue;
+
+            // UPDATE Cities SET Population = xx Where Id = yy
+            City city = new City { Id = id, Population = population };
+            _context.Cities.Attach(city);
+            _context.Entry(city).Property(c => c.Population).IsModified = true;
+
+            numberOfCitiesModified++;
+        }
+
+        if (numberOfCitiesModified > 0)
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        return new JsonResult(new
+        {
+            CitiesModified = numberOfCitiesModified
+        });
+    }
 }

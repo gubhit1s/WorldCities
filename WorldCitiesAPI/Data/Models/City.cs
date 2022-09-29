@@ -8,6 +8,7 @@ namespace WorldCitiesAPI.Data.Models
     [Index(nameof(Name))]
     [Index(nameof(Lat))]
     [Index(nameof(Lon))]
+    [Index(nameof(Population))]
     public class City
     {
         #region Properties
@@ -34,6 +35,11 @@ namespace WorldCitiesAPI.Data.Models
         /// </summary>
         [Column(TypeName = "decimal(7,4)")]
         public decimal Lon { get; set; }
+
+        /// <summary>
+        /// The population of the city.
+        /// </summary>
+        public long Population { get; set; }
 
         /// <summary>
         /// Country Id (foreign key)

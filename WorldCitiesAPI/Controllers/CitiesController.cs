@@ -42,6 +42,7 @@ public class CitiesController : ControllerBase
                         Name = c.Name,
                         Lat = c.Lat,
                         Lon = c.Lon,
+                        Population = c.Population,
                         CountryId = c.Country!.Id,
                         CountryName = c.Country!.Name
                     }),

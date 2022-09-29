@@ -6,6 +6,7 @@ public class CityDTO
     public string Name { get; set; } = null!;
     public decimal Lat { get; set; }
     public decimal Lon { get; set; }
+    public long Population { get; set; }
 
     public int CountryId { get; set; }
     public string? CountryName { get; set; } = null!;
