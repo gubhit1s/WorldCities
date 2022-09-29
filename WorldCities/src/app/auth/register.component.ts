@@ -51,7 +51,7 @@ export class RegisterComponent extends BaseFormComponent implements OnInit {
       let passField = control.parent.get('password')!.value;
       console.log(control.errors?.['duplicated']);
       let confirmPassField = control.parent.get('confirmPassword')!.value;
-      return passField !== confirmPassField ? { duplicated: true } : null;
+      return passField !== confirmPassField ? { different: true } : null;
     };
   }
 
