@@ -22,7 +22,7 @@ export abstract class BaseFormComponent {
         case 'isDupeField':
           errors.push(`${displayName} ${customMessages?.[key] ?? "already exists: please choose another."}`);
           break;
-        case 'duplicated':
+        case 'different':
           errors.push(`${displayName} ${customMessages?.[key] ?? "must match the preceding field"}`);
           break;
         default:
