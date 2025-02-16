@@ -26,6 +26,7 @@ public class AccountController : ControllerBase
     public async Task<IActionResult> Login(AccountInfo loginRequest)
     {
         var user = await _userManager.FindByNameAsync(loginRequest.Email);
+
         if (user == null || !await _userManager.CheckPasswordAsync(user, loginRequest.Password))
             return Unauthorized(new LoginResult()
             {
